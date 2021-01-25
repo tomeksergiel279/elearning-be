@@ -47,7 +47,11 @@ public class UserDao {
         jdbcTemplate.update(sql, user);
     }
 
-
+    public List<Map<String, Object>> loadUserByLoginAndPassword(String username, String password){
+        String sql = "SELECT * FROM User WHERE username LIKE ? AND password LIKE ?";
+        Object[] user = new Object[]{username, password};
+        return jdbcTemplate.queryForList(sql, user);
+    }
 
 
 }

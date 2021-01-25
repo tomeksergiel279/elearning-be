@@ -21,7 +21,6 @@ public class LessonApi {
 
     @GetMapping("/lesson/getLessons")
     public List<Map<String, Object>> GetLessons(){
-
         return lessonDao.showAllLessons();
     }
 

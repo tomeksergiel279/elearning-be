@@ -36,6 +36,11 @@ public class UserApi {
         userDao.saveUser(user);
     }
 
+    @PostMapping("user/loginRequest")
+    public List<Map<String, Object>> login(@RequestBody User user){
+        List<Map<String, Object>> returnedClient =  userDao.loadUserByLoginAndPassword(user.getUsername(), user.getPassword());
+        return returnedClient;
+    }
 
     @DeleteMapping("/user/deleteUserById")
     public void DeleteUserById(long id){
