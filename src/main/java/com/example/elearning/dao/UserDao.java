@@ -1,6 +1,5 @@
 package com.example.elearning.dao;
 
-import com.example.elearning.model.Course;
 import com.example.elearning.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,9 +19,10 @@ public class UserDao {
     }
 
     public void saveUser(User user){
-        String sql = "INSERT INTO User VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO User VALUES(?,?,?,?,?,?)";
         jdbcTemplate.update(sql, new Object[]{
                 user.getId(),
+                user.getCourseId(),
                 user.getUsername(),
                 user.getPassword(),
                 user.getLoginStatus(),
@@ -44,6 +44,13 @@ public class UserDao {
 
         String sql = "DELETE FROM User WHERE id LIKE ?";
         Object[] user = new Object[]{id};
+        jdbcTemplate.update(sql, user);
+    }
+
+    public void addCourseToUser(long courseId, long userId){
+
+        String sql = "UPDATE `user` SET `courseId`= ? WHERE id = ?";
+        Object[] user = new Object[]{courseId, userId};
         jdbcTemplate.update(sql, user);
     }
 

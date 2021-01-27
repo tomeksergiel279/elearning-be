@@ -1,7 +1,6 @@
 package com.example.elearning.api;
 
 import com.example.elearning.dao.UserDao;
-import com.example.elearning.model.Course;
 import com.example.elearning.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +33,11 @@ public class UserApi {
     @PostMapping("/user/addUser")
     public void addUser(@RequestBody User user){
         userDao.saveUser(user);
+    }
+
+    @PostMapping("/user/addCourseToUser")
+    public void addCourseToUser(long courseId, long userId){
+        userDao.addCourseToUser(courseId, userId);
     }
 
     @PostMapping("user/loginRequest")

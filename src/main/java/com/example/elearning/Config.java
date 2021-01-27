@@ -27,14 +27,14 @@ public class Config{
         return new JdbcTemplate(getDataSource());
     }
 
-//    @EventListener(ApplicationReadyEvent.class)
-//    public void dbInit(){
+    @EventListener(ApplicationReadyEvent.class)
+    public void dbInit(){
 //        String sqlCourse = "Create TABLE Course(id INT NOT NULL UNIQUE, price INT NOT NULL, name varchar(50) NOT NULL, description varchar(500) NOT NULL);";
 //        String sqlLesson = "Create TABLE Lesson(id INT NOT NULL UNIQUE, duration_time varchar(50) NOT NULL, notes varchar(1000));";
 //        String sqlWishlist = "Create TABLE Wishlist(id INT NOT NULL UNIQUE, quantity INT NOT NULL );";
 //        String sqlShoppingCart = "Create TABLE ShoppingCart(id INT NOT NULL UNIQUE , quantity INT NOT NULL);";
 //        String sqlCustomer = "Create TABLE Customer(id INT NOT NULL UNIQUE , first_name varchar(50) NOT NULL, last_name varchar(50) NOT NULL);";
-//        String sqlUser = "Create TABLE User(id INT NOT NULL UNIQUE , username varchar(30) NOT NULL, password varchar(50) NOT NULL, loginStatus varchar(50) NOT NULL, registerDate varchar(30) NOT NULL);";
+//        String sqlUser = "Create TABLE User(id INT NOT NULL UNIQUE ,courseId INT, username varchar(30) NOT NULL, password varchar(50) NOT NULL, loginStatus varchar(50) NOT NULL, registerDate varchar(30) NOT NULL);";
 //
 //        getJdbcTemplate().update(sqlCourse);
 //        getJdbcTemplate().update(sqlLesson);
@@ -43,6 +43,6 @@ public class Config{
 //        getJdbcTemplate().update(sqlUser);
 //        getJdbcTemplate().update(sqlCustomer);
 //
-//    }
+    }
 
 }

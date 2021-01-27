@@ -1,9 +1,9 @@
 package com.example.elearning.model;
 
-
 public class User {
 
   private long id;
+  private long courseId;
   private String username;
   private String password;
   private String loginStatus;
@@ -16,6 +16,15 @@ public class User {
 
   public void setId(long id) {
     this.id = id;
+  }
+
+
+  public long getCourseId() {
+    return courseId;
+  }
+
+  public void setCourseId(long courseId) {
+    this.courseId = courseId;
   }
 
 
